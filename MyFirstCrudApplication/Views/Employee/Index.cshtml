@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyFirstCrudApplication.Models.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="row">  
+            <h1 class="text-center text-primary">Employee Record</h1>
+            <a class="btn btn-sm btn-success m-1" asp-controller="Employee" asp-action="Create">Create</a>
+            <table class="table table-borderd">
+                <tr class="text-center">
+                    <th>Employee_Id</th>
+                    <th>Employee_Name</th>
+                    <th>Employee_PhoneNumber</th>
+                    <th>Employee_Email</th>
+                    <th>Hire_Date</th>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Action</th>
+                </tr>
+                @foreach(var d in Model)
+                {
+                    <tr class="text-center">
+                        <td>@d.Employee_Id</td>
+                        <td>@d.Employee_Name</td>
+                        <td>@d.Employee_PhoneNumber</td>
+                        <td>@d.Employee_Email</td>
+                        <td>@d.Hire_Date</td>
+                        <td>@d.Status</td>
+                        <td>@d.Title</td>
+                        <td>
+                         <a class="btn btn-sm btn-warning" asp-controller="Employee" asp-action="Edit" asp-route-id="@d.Employee_Id">Edit</a>
+                        <button type ="submit" class="btn btn-sm btn-danger" asp-page-handler="Delete" asp-route-id="@d.Employee_Id">Delete</button>
+                        </td>
+                   
+                        
+                   
+
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+    
+
+
+
